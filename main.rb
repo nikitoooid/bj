@@ -1,8 +1,11 @@
-#classes
-require_relative './classes/text_interface/text_interface'
-#modules
+# frozen_string_literal: true
+
+# modules
+require_relative './modules/text_interface'
+# classes
+require_relative './classes/game/game'
+require_relative './classes/player/player'
 
 
-ti = TextInterface.new
 
-ti.ask('Test message') ? puts('true') : puts('false')
+Game.new().start
