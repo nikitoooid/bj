@@ -3,7 +3,7 @@
 module TextInterface
   # Alerts message and wait for enter
   def alert(message)
-    clear_ask_for("#{message}\nPress enter to continue.")
+    clear_ask_for("#{message}\nPress enter to continue. ")
   end
 
   # Ask question and return true or false (yes or no)
@@ -11,7 +11,7 @@ module TextInterface
     result = 0
 
     loop do
-      result = clear_ask_for("#{message} \n1 - Yes | 2 - No")
+      result = ask_for("#{message}\n1 - Yes | 2 - No\n")
 
       break if result.between?(1, 2)
 
@@ -25,8 +25,8 @@ module TextInterface
   end
 
   # Ask for input anything
-  def ask_for(message, type = :int, newline = true)
-    newline ? puts(message) : print(message)
+  def ask_for(message, type = :int)
+    print(message)
     result = gets.chomp
 
     case type
@@ -40,10 +40,8 @@ module TextInterface
   end
 
   # Ask for input anything after clearing screen (return result as :int, :str, :sym)
-  def clear_ask_for(message, type = :int, newline = true)
+  def clear_ask_for(message, type = :int)
     system 'clear'
-    ask_for(message, type, newline)
+    ask_for(message, type)
   end
-
-  private
 end

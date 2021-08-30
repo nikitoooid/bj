@@ -2,7 +2,7 @@
 
 module Cards
   SUITS = ['♠', '♦', '♣', '♥'].freeze
-  VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A'].freeze
+  VALUES = %w[2 3 4 5 6 7 8 9 J Q K A].freeze
 
   # generate new deck
   def new_deck
